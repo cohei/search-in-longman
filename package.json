@@ -5,8 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && npm run urlize",
-    "urlize": "echo \"javascript:$(cat minified.js)\" > search-in-longman.url"
+    "build": "npm run uglify && npm run urlize",
+    "uglify": "uglifyjs main.js --compress --mangle -o uglified.js",
+    "urlize": "echo \"javascript:$(cat uglified.js)\" > search-in-longman.url"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,6 @@
   },
   "homepage": "https://github.com/cohei/search-in-longman#readme",
   "devDependencies": {
-    "webpack": "^1.13.2"
+    "uglify-js": "^2.7.3"
   }
 }
