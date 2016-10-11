@@ -4,10 +4,10 @@
   "description": "Search a word in Longman Dictionary of Contemporary English from selection or prompt.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run uglify && npm run urlize",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "npm run uglify && npm run readme",
     "uglify": "uglifyjs main.js --compress --mangle -o uglified.js",
-    "urlize": "echo \"javascript:$(cat uglified.js)\" > search-in-longman.url"
+    "readme": "node makeReadme.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cohei/search-in-longman#readme",
   "devDependencies": {
-    "uglify-js": "^2.7.3"
+    "uglify-js": "^2.7.3",
+    "mustache": "^2.2.1"
   }
 }
