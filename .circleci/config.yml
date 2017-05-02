@@ -26,5 +26,6 @@ jobs:
             npm run build
             git config user.email "a.d.xvii.kal.mai@gmail.com"
             git config user.name "TANIGUCHI Kohei"
-            git commit README.md -m "[ci skip] Update README.md by CircleCI"
-            git push git@github.com:cohei/search-in-longman.git master
+            if git commit README.md -m "[ci skip] Update README.md by CircleCI"; then
+              git push git@github.com:cohei/search-in-longman.git mastera
+            fi
