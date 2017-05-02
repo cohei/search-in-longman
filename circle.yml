@@ -1,9 +1,0 @@
-deployment:
-  release:
-    branch: master
-    commands:
-      - npm run build
-      - git config user.email "a.d.xvii.kal.mai@gmail.com"
-      - git config user.name "TANIGUCHI Kohei"
-      - git commit README.md -m "[ci skip] Update README.md by CircleCI"
-      - git push git@github.com:cohei/search-in-longman.git master

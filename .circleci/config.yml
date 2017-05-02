@@ -1,0 +1,30 @@
+version: 2
+branches:
+  only:
+    - master
+jobs:
+  build:
+    working_directory: /search-in-longman
+    docker:
+      - image: node:7.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-library-{{ checksum "package.json" }}
+            - npm-library
+      - run:
+          name: Install libraries
+          command: npm install
+      - save_cache:
+          key: npm-library-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Commit built README
+          command: |
+            npm run build
+            git config user.email "a.d.xvii.kal.mai@gmail.com"
+            git config user.name "TANIGUCHI Kohei"
+            git commit README.md -m "[ci skip] Update README.md by CircleCI"
+            git push git@github.com:cohei/search-in-longman.git master
