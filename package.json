@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/cohei/search-in-longman#readme",
   "devDependencies": {
-    "uglify-js": "^2.7.3",
-    "mustache": "^2.2.1"
+    "mustache": "^2.3.0",
+    "uglify-js": "^2.8.22"
   }
 }

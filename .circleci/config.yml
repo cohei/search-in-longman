@@ -11,19 +11,19 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - npm-library-{{ checksum "package.json" }}
-            - npm-library
+            - yarn-library-{{ checksum "yarn.lock" }}
+            - yarn-library
       - run:
           name: Install libraries
-          command: npm install
+          command: yarn install
       - save_cache:
-          key: npm-library-{{ checksum "package.json" }}
+          key: yarn-library-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
       - run:
           name: Commit built README
           command: |
-            npm run build
+            yarn run build
             git config user.email "a.d.xvii.kal.mai@gmail.com"
             git config user.name "TANIGUCHI Kohei"
             if git commit README.md -m "[ci skip] Update README.md by CircleCI"; then
