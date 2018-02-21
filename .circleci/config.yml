@@ -6,7 +6,7 @@ jobs:
   build:
     working_directory: /search-in-longman
     docker:
-      - image: node:7.9.0
+      - image: node:9.5.0
     steps:
       - checkout
       - restore_cache:
