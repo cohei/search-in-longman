@@ -28,5 +28,5 @@ jobs:
             git config user.email "a.d.xvii.kal.mai@gmail.com"
             git config user.name "TANIGUCHI Kohei"
             git add $TARGET
-            git commit $TARGET -m "[ci skip] Update $TARGET by CircleCI"
+            git commit $TARGET -m "[ci skip] Update $TARGET by CircleCI" || true
             git push git@github.com:cohei/search-in-longman.git master
