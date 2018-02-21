@@ -21,6 +21,6 @@
   "homepage": "https://github.com/cohei/search-in-longman#readme",
   "devDependencies": {
     "mustache": "^2.3.0",
-    "uglify-js": "^2.8.22"
+    "uglify-es": "^3.3.9"
   }
 }
