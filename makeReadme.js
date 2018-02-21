@@ -1,16 +1,15 @@
 const fs = require('fs');
-const mustache = require('mustache');
+const UglifyJS = require('uglify-es');
 
-const render = (template, code) => mustache.render(template, {code: code});
+const code = UglifyJS.minify(fs.readFileSync('main.js', 'utf-8')).code;
 
-fs.readFile(
-  'README.mustache',
-  'utf-8',
-  (e, template) =>
-    fs.readFile(
-      'uglified.js',
-      'utf-8',
-      (e, code) =>
-        fs.writeFile('README.md', render(template, code))
-    )
-);
+const readme = `# Search in Longman Dictionary of Contemporary English
+
+Bookmark the URI below. Select the word you want to search and click the bookmark.
+
+\`\`\`
+javascript:${code}
+\`\`\`
+`;
+
+fs.writeFileSync('README.md', readme);
