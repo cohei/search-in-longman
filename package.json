@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "npm run uglify && npm run readme",
+    "build": "yarn run uglify && yarn run readme",
     "uglify": "uglifyjs main.js --compress --mangle -o uglified.js",
     "readme": "node makeReadme.js"
   },
