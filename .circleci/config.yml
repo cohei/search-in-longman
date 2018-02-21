@@ -4,7 +4,6 @@ branches:
     - master
 jobs:
   build:
-    working_directory: /search-in-longman
     docker:
       - image: node:9.5.0
     steps:
@@ -22,10 +21,12 @@ jobs:
             - node_modules
       - run:
           name: Commit built README
+          environment:
+            TARGET: index.html
           command: |
             yarn run build
             git config user.email "a.d.xvii.kal.mai@gmail.com"
             git config user.name "TANIGUCHI Kohei"
-            if git commit README.md -m "[ci skip] Update README.md by CircleCI"; then
-              git push git@github.com:cohei/search-in-longman.git mastera
-            fi
+            git add $TARGET
+            git commit $TARGET -m "[ci skip] Update $TARGET by CircleCI"
+            git push git@github.com:cohei/search-in-longman.git master
