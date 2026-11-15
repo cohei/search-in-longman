@@ -1,21 +1,5 @@
-import fs from 'fs';
 import { minify } from 'terser';
+import bookmarklet from './bookmarklet.js';
 
-const { code } = await minify(fs.readFileSync('bookmarklet.js', 'utf-8'));
-const encoded = encodeURIComponent(code);
-
-const html = `<!DOCTYPE html>
-<html>
-  <head>
-    <title>Search in Longman</title>
-  </head>
-  <body>
-    <p>
-      Bookmark from <a href="javascript:${encoded}">here</a>.
-    </p>
-
-  </body>
-</html>
-`;
-
-fs.writeFileSync('index.html', html);
+const { code } = await minify(`(${bookmarklet})()`);
+document.getElementById('bookmarklet').href = 'javascript:' + encodeURIComponent(code);
