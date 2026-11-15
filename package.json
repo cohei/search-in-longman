@@ -1,23 +1,9 @@
 {
-  "name": "search-in-longman",
-  "version": "1.0.0",
-  "description": "Search a word in Longman Dictionary of Contemporary English from selection or prompt.",
-  "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "node makeHtml.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cohei/search-in-longman.git"
-  },
-  "author": "TANIGUCHI Kohei",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cohei/search-in-longman/issues"
-  },
-  "homepage": "https://github.com/cohei/search-in-longman#readme",
   "devDependencies": {
     "terser": "^5.51.2"
   }
