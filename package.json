@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "node makeHtml.js"
+    "build": "node main.js"
   },
   "license": "MIT",
   "devDependencies": {
