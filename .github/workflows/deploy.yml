@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - run: yarn install
-      - run: yarn run build
+      - run: npm ci
+      - run: npm run build
       - run: mkdir _site && mv index.html _site/
       - uses: actions/upload-pages-artifact@v5.0.0
 
