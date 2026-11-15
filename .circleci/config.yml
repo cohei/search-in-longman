@@ -1,7 +1,9 @@
-version: 2
-branches:
-  only:
-    - master
+version: 2.1
+workflows:
+  build:
+    jobs:
+      - build:
+          filters: pipeline.git.branch == "master"
 jobs:
   build:
     docker:
@@ -19,6 +21,9 @@ jobs:
           key: yarn-library-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:wAEkbBMgQCioiBR3yFX9KaDAbnVdFYtg33QlGTuhH9o"
       - run:
           name: Commit built README
           environment:
