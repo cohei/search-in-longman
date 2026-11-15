@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/cohei/search-in-longman#readme",
   "devDependencies": {
-    "uglify-es": "^3.3.9"
+    "terser": "^5.51.2"
   }
 }

@@ -1,7 +1,7 @@
 import fs from 'fs';
-import UglifyJS from 'uglify-es';
+import { minify } from 'terser';
 
-const code = UglifyJS.minify(fs.readFileSync('main.js', 'utf-8')).code;
+const { code } = await minify(fs.readFileSync('main.js', 'utf-8'));
 const encoded = encodeURIComponent(code);
 
 const html = `<!DOCTYPE html>
