@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Search a word in Longman Dictionary of Contemporary English from selection or prompt.",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "node makeHtml.js"

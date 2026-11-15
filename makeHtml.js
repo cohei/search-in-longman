@@ -1,5 +1,5 @@
-const fs = require('fs');
-const UglifyJS = require('uglify-es');
+import fs from 'fs';
+import UglifyJS from 'uglify-es';
 
 const code = UglifyJS.minify(fs.readFileSync('main.js', 'utf-8')).code;
 const encoded = encodeURIComponent(code);
